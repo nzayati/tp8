@@ -1,0 +1,18 @@
+{ "index" : {}}
+{ "productName":"t-shirt", "productType":"vêtements", "quantity":1, "price":50}
+{ "index" : {}}
+{ "productName":"t-shirt", "productType":"vêtements", "quantity":1, "price":120}
+{ "index" : {}}
+{ "productName":"crop top", "productType":"vêtements", "quantity":1, "price":80}
+{ "index" : {}}
+{  "productName":"jeans", "productType":"vêtements", "quantity":3, "price":170}
+{ "index" : {}}
+{  "productName":"collier", "productType":"accessoires", "quantity":7, "price":600}
+{ "index" : {}}
+{ "productName":"lunettes", "productType":"accessoires", "quantity":1, "price":900}
+{ "index" : {}}
+{ "productName":"shorts","productType":"vêtement", "quantity":2,"price":75}
+{ "index" : {}}
+{ "productName":"espadrilles", "productType":"chaussures", "quantity": 1, "price": 300}
+{ "index" : {}}
+{ "productName":"bottines", "productType":"chaussures", "quantity": 10, "price": 450}
