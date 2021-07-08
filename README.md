@@ -1,29 +1,48 @@
 # TP 8 NoSQL GiantMix 
 
-### _Le jeu du pendu_
 
 ##### Auteurs :
 - Zayati Narjess
-- Bricha Fatima Zahra
+- Bricha Fatima-Zahra
 - Mekedem Sara
 
-## Comment jouer ?
+## APP overview:
+Application web PHP de site marchand/vente en ligne implémentant des technos NoSQL.
 
-- Un joueur propose un mot
-- La liste des joueurs s'affiche
-- Les autres joueurs peuvent proposer des lettres tour à tour
-- Les joueurs peuvent proposer un mot 
-- Les joueurs ont 60 secondes pour trouver le mot
 
-## Comment lancer l'application ? 
 
-- Lancer redis server
-- Lancer wamp
+- Création de compte --> Système d'inscription utilisant MongoDB, disponible via register.php, cette page permet de créer un compte avec les données {email & password}. ces données sont persistées sur MongoDB -> {Collection: users} et permettent par la suite la connexion. 
+
+- Connexion avec un compte --> page index.php permet de se connecter à son compte avec les données des utilisateurs enregistrés auparavant.
+
+- Catalogue des produits --> Les données concernant les produits {productName, productType, quantity, price}
+
+--> Problèmes rencontrés: configuration de MongoDB avec PHP très complexe, et les extensions installées ne 
+permettent pas de faire les échanges de données comme souhaité. Nous avons pris beaucoup de temps et cela nous a retardé sur le projet au point que la fonction de recherche avec elasticSearch d'un produit n'est pas aboutie bien qu'on y ait réfléchi et qu'on connaisse la techno.
+
+- Panier d'Achats sous forme de liste Redis d'articles avec leur type de produits, quantité et prix
 
 ## Structure de l'application
 
-- index.php : Affichage de la page html général, c'est la page qu'on doit afficher dans l'url du navigateur
-- page.php : Interractions entre php et redis
-- redis-connexion.php : Contient le code php nécessaire pour la connexion à redis
-- redis-functions.php : Contient les fonctions redis utilisées dans le code, il est possible ici de changer, lesle host ou le password (qui est commenté pour nous)
-- /images : Contient les 10 images du pendu qui seront affichées lors du jeu
+#### Partie MongoDB
+
+- index.php : Affichage les informations du user si connecté
+- login.php : Front pour se connecter 
+- login_action.php : back pour se connecter
+- library.php : contient toutes les fonctions pour se connecter et s'inscrire
+- register.php :front pour s'inscrire
+- register_action.php : back pour s'inscrire
+- mongodb.json : contient la bdd de mongodb
+- script.js: code JS qui affiche si le mot de passe et sa confirmation se correspondent
+
+
+#### Partie Redis
+
+- redis-connexion.php: Etablit la connection au serveur redis
+- panier.php : itère sur la liste des produits dans le panier 
+- panier-redis.php: récupère le panier et définit sa limite d'expiration de 300secondes soit 5min
+- /predis : la config poula connexion au serveur redis
+
+#### Partie ElasticSearch
+-elasticsearch.txt : contient la structure des produits de la bdd
+-recherche.php : affiche le résultat de recherche
